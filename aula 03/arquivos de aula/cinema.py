@@ -16,8 +16,7 @@ def idade_desconto(idade):
         return 0.25  # Desconto de 25% para idosos
             
     
-    
-       
+
     else:
         return 0.0
 
