@@ -26,7 +26,15 @@ def fazer_pedido(pedido):
     pedidos.append(precos[pedido])
  
 def calcular_total():
-    return sum(pedidos)
+    total = sum(pedidos)
+
+    # Se o valor total for maior ou igual a R$ 20.00, aplica 10% de desconto
+    if total >= 20:
+        desconto = total * 0.10
+        return total - desconto
+    else:
+        return total
+    
  
 def menu():
     print("\n==== Lanchonete ====")
