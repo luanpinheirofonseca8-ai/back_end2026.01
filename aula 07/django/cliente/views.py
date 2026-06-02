@@ -5,40 +5,22 @@ from django.http import HttpResponse
 
 
 
-def ola_mundo(request):
-    return HttpResponse("<h1>Olá, mundo!</h1>" "<p>Ola, djangooo!</p>")
 
 
-def contato(request):
-    return HttpResponse("<h1>Contato</h1>  <form>  <input type=text placeholder=email@email.com>  <input text=text placeholder=(21)99999-9999> <button>enviar</button> </form>") 
-
-
-
-#aula 08
-def formulario(request):
-    return render (request, "clientes/formulario.html")
 
 def home(request):
-    #Conceito de context (contexto)
-    #Context - pega dados na view e passa para o template
+    titulo = "Pagina Inicial"
+    return render(request, 'clientes/home.html', {'titulo': titulo})
  
-    titulo = "Nossos melhores clientes "
- 
-    nosso_cliente = {
-        'nome': "Thyago Assis de Almeida",
-        'idade': 44,
-        'nascimento': "15/021982"
-    }
- 
-    nomes_clientes = ["Maria", "Joao", "Mateus", "Ana", "Marcos"]
- 
-    carros = [
-        {'marca': "Chevrolet", 'modelo':'Onix LT', 'ano': '2020'},
-        {'marca': "Fiat", 'modelo':'Uno', 'ano': '2010'},
-        {'marca': "VW", 'modelo':'Gol', 'ano': '2022'},
+def dados_clientes(request):
+    titulo = "Nosos Clientes"
+    nossos_clientes = [
+        {'nome': "Mario Silva de Carvalho", 'idade': '44 anos', 'nascimento': '17/08/1982'},
+        {'nome': "Jose Alves", 'idade': '42 anos', 'nascimento': '17/08/1980'},
+        {"nome": "Ana Maria Braga", "idade": 35, "nascimento": "10/12/1988"}
     ]
- 
-    return render(request, "clientes/home.html", {'msg':titulo, 'lista_clientes':nosso_cliente, 'dados':nomes_clientes, 'meus_carros':carros})
+    return render(request, 'clientes/dados_clientes.html', {'titulo': titulo, 'dados_clientes':dados_clientes})
  
 def formulario(request):
-    return render(request, "clientes/formulario.html" )
+    titulo = "Nosos Clientes"
+    return render(request, 'clientes/form.html', {'titulo':titulo})
