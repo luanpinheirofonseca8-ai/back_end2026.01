@@ -21,3 +21,12 @@ def info(request):
 
 
     return render(request, 'alunos/inscricao.html', {'msg': titulo,'alunos': alunos})
+
+def formulario(request):
+    titulo = "Nossos Clientes"
+    return render(request, 'clientes/formulario.html', {'titulo':titulo})
+
+
+
+def cursos(request):
+    return render(request, 'alunos/cursos.html')
